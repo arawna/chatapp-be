@@ -46,11 +46,12 @@ router.post("/login", (req,res) => {
         name: user.name,
         email: user.email
     }
-    const token = jwt.sign(payload, req.app.get("api_secret_key"), { expiresIn: "24h"});
+    const token = jwt.sign(payload, req.app.get("api_secret_key"), { expiresIn: "24h", algorithm: "HS256"});
     res.json({
         status: true,
         message: "Giriş başarılı",
-        token
+        token,
+        name: user.name,
     })
 })
 
