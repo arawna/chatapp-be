@@ -55,5 +55,9 @@ router.post("/login", (req,res) => {
     })
 })
 
+router.get("/test", (req,res) => {
+    res.json({status: true, message: "Test başarılı"});
+})
+
 
 module.exports = router;
