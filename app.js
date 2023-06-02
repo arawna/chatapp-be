@@ -14,7 +14,7 @@ app.use("/api/users", require("./controllers/userController"))
 
 
 const server = http.createServer(app);
-const io = require("socket.io")(server , { cors: { origin: "*" } });
+const io = require("socket.io")(server , { cors: { origin: "*" }, path: "/api/socket.io"});
 
 io.use(function(socket, next){
     if (socket.handshake.query && socket.handshake.query.token){
