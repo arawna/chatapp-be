@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
 
-app.use("/users", require("./controllers/userController"))
+app.use("/api/users", require("./controllers/userController"))
 
 
 const server = http.createServer(app);
