@@ -10,11 +10,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors())
 
-app.use("/api/users", require("./controllers/userController"))
+app.use("/users", require("./controllers/userController"))
 
 
 const server = http.createServer(app);
-const io = require("socket.io")(server , { cors: { origin: "*" }, path: "/api/socket.io"});
+const io = require("socket.io")(server , { cors: { origin: "*" }});
 
 io.use(function(socket, next){
     if (socket.handshake.query && socket.handshake.query.token){
